@@ -20,7 +20,7 @@ Unfortunately there is no way for me to do this directly on vanilla js, since `.
 ---
 ## **Alright what does this do?**
 ### ***OrbCursor will follow your cursor relative to your viewport***
-When scrolling the orb will not get left behind.
+When scrolling the orb will not get left behind.  
 ![orbCursor](./run.gif)  
 Look at them go.
 
