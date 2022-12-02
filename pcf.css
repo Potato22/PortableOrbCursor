@@ -1,0 +1,74 @@
+:root {
+    --sleek: cubic-bezier(.03, .77, .34, 1)
+}
+
+.orbcursor {
+    display: none;
+    position: fixed;
+    --orbsize: 10px;
+    width: var(--orbsize);
+    height: var(--orbsize);
+    background: white;
+    top: 0;
+    left: 0;
+    mix-blend-mode: difference;
+    z-index: 10;
+    pointer-events: none;
+    border-radius: 50%
+}
+
+.animactive {
+    animation: orbactive .5s forwards var(--sleek)
+}
+
+@keyframes orbactive {
+    from {
+        transform: scale(5)
+    }
+
+    to {
+        transform: scale(1) translate(calc(var(--orbsize)/-2), calc(var(--orbsize)/-2))
+    }
+}
+
+.animoff {
+    animation: animoff 1s forwards var(--sleek)
+}
+
+@keyframes animoff {
+    from {
+        transform: scale(1) translate(calc(var(--orbsize)/-2), calc(var(--orbsize)/-2))
+    }
+
+    to {
+        transform: scale(0)
+    }
+}
+
+.hoveringattr {
+    animation: hovering .5s forwards var(--sleek)
+}
+
+@keyframes hovering {
+    from {
+        transform: scale(1) translate(calc(var(--orbsize)/-2), calc(var(--orbsize)/-2))
+    }
+
+    to {
+        transform: scale(10) translate(-1px, -1px)
+    }
+}
+
+.idle {
+    animation: idle .5s forwards var(--sleek)
+}
+
+@keyframes idle {
+    from {
+        transform: scale(10) translate(-1px, -1px)
+    }
+
+    to {
+        transform: scale(1) translate(calc(var(--orbsize)/-2), calc(var(--orbsize)/-2))
+    }
+}

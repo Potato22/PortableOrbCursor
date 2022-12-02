@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quirky orb that follows you.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image"
+        content="">
+    <meta name="twitter:title" content="Portable Orb Cursor">
+    <meta name="twitter:description" content="Quirky orb that follows you.">
+    <meta property="og:type" content="website">
+    <meta property="og:image"
+        content="">
+    <title>Portable Orb Cursor</title>
+
+    <!-- All you need to include-->
+    <script src="jquery.min.js"></script>
+    <script src="pcf.js" defer></script>
+    <link rel="stylesheet" href="pcf.css">
+    <!-- All you need to include-->
+
+    <style>
+        @font-face {
+            font-family: 'Inter';
+            src: url('Inter.var.woff2') format("truetype-variations");
+            font-weight: 1 1000;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; padding: 3em; background: black;">
+
+    <!-- OrbCursor -->
+    <div class="orbcursor"></div>
+    <!-- Literally all you need in the html. Just copy this one element. -->
+    
+    
+    <!-- Demo Content -->
+    <div style="color: white; font-family: 'Inter'; display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div>OrbCursor is portable, you can directly copy and paste it to your webdev project if you feel like wanting to look fancy and all.</div><br>
+        <div>OrbCursor will react if the cursor is on the web page or not, going off screen will make it disappear entirely.</div><br>
+        <div>OrbCursor will follow your cursor relative to your viewport (ABSOLUTE), so when scrolling the orb will not get
+        left behind.</div><br>
+        <div> OrbCursor will react to any attribute links.
+            <a href="" style=" color: black; font-size: 2em;">
+                <div style="background: white; ">funny link</div>
+            </a>
+        </div><br>
+        
+        <div>Optionally you can assign a specific element for the Orb to react in the js. In this example, the element is given data:</div><code>orbReact = "true"</code>
+        <div orbReact="true" style="width: 200px; height: 200px; background: url(https://cdn.discordapp.com/attachments/455702275868983307/957369738546270348/inabakumori_11.png); background-position: center;"></div>
+        <code>image of Inabakumori</code><br>
+        
+        <div orbReact="true" style="background: white; color: black;">OrbCursor has inversion filter embedded in the CSS, no visibility issues.</div><br>
+
+        <div><code>(not recommended)</code> If you want to hide the cursor entirely, change the easing multiplier to <b>1</b> in the js.</div>
+        <code>
+            var speed = 1
+        </code>
+        <div>This minimizes the potential to make the user experience feel jarring.</div>
+        <div>..Otherwise:</div><br>
+        <div orbReact="true" style="width: 400px; height: 400px; background: url(https://cdn.discordapp.com/attachments/455702275868983307/957369738546270348/inabakumori_11.png); background-position: center; cursor: none;"></div>
+        <code>image of Inabakumori</code>
+        <div>It looks cool but for a real UX, it's a bad idea.</div><br>
+        <code>OrbCursor made by Potto with 💟.</code>
+    </div>
+</body>
+
+</html>
