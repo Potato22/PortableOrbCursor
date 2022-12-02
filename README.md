@@ -1,12 +1,31 @@
 # OrbCursor
-## **OrbCursor is portable**
+## **OrbCursor is portable** .. with Jquery.min
 You can directly copy and paste it to your webdev project if you feel like wanting to look fancy and all.
+```html
+<head>
+    <script src="jquery.min.js"></script>
+    <script src="pcf.js" defer></script>
+    <link rel="stylesheet" href="pcf.css">
+</head>
 
-OrbCursor will follow your cursor relative to your viewport (ABSOLUTE), so when scrolling the orb will not get left behind.  
-![orbCursor](./run.gif)  
+<body>
+    <div class="orbcursor"></div>
+</body>
+<!-- This is all you need, all the required files are inside the repository. -->
+```
+## **.. why jQuery?**
+Unfortunately there is no way for me to do this directly on vanilla js, since `.stop()` method is crucial part to make this work as efficient and pleasing to look at as I can.
+
 
 ---
-## **OrbCursor will react:**
+## **Alright what does this do?**
+### ***OrbCursor will follow your cursor relative to your viewport***
+When scrolling the orb will not get left behind.
+![orbCursor](./run.gif)  
+Look at them go.
+
+
+### ***OrbCursor will react:***
 - if the cursor is on the web page or not.
 - react to any attribute links.  
 ![orbCursor](./attribute.png)  
