@@ -36,9 +36,33 @@ Look at them go.
 **OrbCursor has inversion filter embedded in the CSS, no visibility issues.**
 
 ---
-##### *(not recommended)*
-If you want to hide the cursor entirely, change the easing multiplier to 1 in the js.
-```js
-var speed = 1
+## **Customizations**
+### **Orb size**
+You can change the orb size inside the `poc.css`
+##### default variable:
+```css
+.orbcursor {
+    --orbsize: 10px;
+    --growScale: 10;
+    --offset: -.5px;
+    /*customizable variables*/
+
+    ...
 ```
-This minimizes the potential to make the user experience feel jarring.
+### **Easing**
+Change the ease and movement of the orb by changing the speed variable in `poc.js`
+##### default variable:
+```js
+let speed = .2; // easing multiplier max(1)
+```
+If you want to hide the cursor easing entirely, change the easing multiplier to `1` in the `poc.js`.
+```js
+let speed = 1;
+```
+This will make the cursor movement immediate.
+
+##### *(not recommended)*
+Setting the speed more than `1` will freak out the orb and perform mitosis (and reduce performance).
+```js
+let speed = 1.7; //perform mitosis
+```

@@ -36,7 +36,7 @@ let mouseY = 0;
 let cursorX = 0;
 let cursorY = 0;
 
-let speed = .2; // change to increase the ease
+let speed = .2; // easing multiplier max(1)
 
 function animate() {
   let distX = mouseX - cursorX;
