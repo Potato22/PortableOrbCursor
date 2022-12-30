@@ -17,27 +17,17 @@ $('html').mouseleave(function () {
   orbcursor.addClass('animoff')
   orbcursor.stop().fadeOut('fast')
 })
-$('a').mouseenter(function () {
+
+$('a, [orbReact = true]').mouseenter(function () {
   orbcursor.removeClass('idle')
   orbcursor.removeClass('animactive')
   orbcursor.addClass('hoveringattr')
 })
-$('a').mouseleave(function () {
+$('a, [orbReact = true]').mouseleave(function () {
   orbcursor.removeClass('hoveringattr')
   orbcursor.addClass('animactive')
   orbcursor.addClass('idle')
 })
-$('[orbReact = true]').mouseenter(() => {
-  orbcursor.removeClass('idle')
-  orbcursor.removeClass('animactive')
-  orbcursor.addClass('hoveringattr')
-  console.log('hovering.')
-});
-$('[orbReact = true]').mouseleave(() => {
-  orbcursor.removeClass('hoveringattr')
-  orbcursor.addClass('animactive')
-  orbcursor.addClass('idle')
-});
 const cursor = document.querySelector('.orbcursor');
 
 let mouseX = 0;
