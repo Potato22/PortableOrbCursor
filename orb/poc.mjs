@@ -76,6 +76,8 @@ class CursorOrbElement extends HTMLElement {
       if (delta > 0) {
         let preferredTime = 1000 / this.targetFPS;
         trueSpeed *= delta / preferredTime;
+        trueSpeed = Math.min(1, trueSpeed);
+        Math.max(0, trueSpeed);
       }
 
       this._pos.cursorX += distX * trueSpeed;
