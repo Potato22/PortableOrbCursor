@@ -1,0 +1,85 @@
+.orbcursor {
+  --orbsize: 10px;
+  --growScale: 10;
+  --offset: -0.5px;
+  --duration: 0.2s;
+  /*you can add your own easing function here*/
+  --sleek: cubic-bezier(0.03, 0.77, 0.34, 1);
+
+  /*customizable variables*/
+
+  transition:
+    opacity var(--duration, 0.2s) var(--sleek, linear),
+    transform var(--duration, 0.2s) var(--sleek, linear);
+
+  opacity: 1;
+  position: fixed;
+  width: var(--orbsize);
+  height: var(--orbsize);
+  background: white;
+  top: 0;
+  left: 0;
+  mix-blend-mode: difference;
+  z-index: 10;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.animactive {
+  animation: orbactive var(--duration) forwards var(--sleek);
+}
+
+@keyframes orbactive {
+  from {
+    opacity: 0;
+    transform: scale(5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translate(calc(var(--orbsize) / -2), calc(var(--orbsize) / -2));
+  }
+}
+
+.animoff {
+  animation: animoff 1s forwards var(--sleek);
+  opacity: 0;
+}
+
+@keyframes animoff {
+  from {
+    transform: scale(1) translate(calc(var(--orbsize) / -2), calc(var(--orbsize) / -2));
+  }
+
+  to {
+    transform: scale(0);
+  }
+}
+
+.hoveringattr {
+  animation: hovering var(--duration) forwards var(--sleek);
+}
+
+@keyframes hovering {
+  from {
+    transform: scale(1) translate(calc(var(--orbsize) / -2), calc(var(--orbsize) / -2));
+  }
+
+  to {
+    transform: scale(var(--growScale)) translate(var(--offset), var(--offset));
+  }
+}
+
+.idle {
+  animation: idle var(--duration) forwards var(--sleek);
+}
+
+@keyframes idle {
+  from {
+    transform: scale(var(--growScale)) translate(var(--offset), var(--offset));
+  }
+
+  to {
+    transform: scale(1) translate(calc(var(--orbsize) / -2), calc(var(--orbsize) / -2));
+  }
+}
