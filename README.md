@@ -1,21 +1,30 @@
 # OrbCursor
-## **OrbCursor is portable** .. with Jquery.min
-You can directly copy and paste it to your webdev project if you feel like wanting to look fancy and all.
+## **OrbCursor is portable** with help of Biepbot (friend :>)
+Feeling fancy?
 ```html
 <head>
-    <script src="jquery.min.js"></script>
-    <script src="pcf.js" defer></script>
-    <link rel="stylesheet" href="pcf.css">
+    <script src="orb/poc.mjs" type="module"></script>
+    <link rel="stylesheet" href="orb/poc.css">
 </head>
 
 <body>
-    <div class="orbcursor"></div>
+    <orb-cursor speed="0.2"></orb-cursor>
 </body>
-<!-- This is all you need, all the required files are inside the repository. -->
 ```
-## **.. why jQuery?**
-Unfortunately there is no way for me to do this directly on vanilla js, since `.stop()` method is crucial part to make this work as efficient and pleasing to look at as I can.
+Download or clone this repository then.. that's it - this is all you need to type, all the required files are inside the repository.
+## **Note**
+This is fully modular and contained inside a single folder "`orb`" that is put on the root. If you want to move it in any custom folder you will have to re-correct the path on the meta. (This example demonstrate what you need to do if you put it in a folder named `modulesFolder`).
+```html
+<head>
+    <script src="modulesFolder/orb/poc-v2.mjs" type="module"></script>
+    <link rel="stylesheet" href="modulesFolder/orb/poc-v2.css">
+</head>
 
+<body>
+    <cursor-orb speed="0.2"></cursor-orb>
+</body>
+```
+ You can tell I am novice since I had to explain this. But hey it works, wonderfully even.
 
 ---
 ## **Alright what does this do?**
@@ -29,7 +38,7 @@ Look at them go.
 - if the cursor is on the web page or not.
 - react to any attribute links.  
 ![orbCursor](./attribute.png)  
-- Optionally you can assign a specific element for the Orb to react in the js. In this example, the element is given data: `orbReact = "true"`  
+- Optionally you can assign a specific element for the Orb to react. In this example, the element is given attribute: `orbReact = "true"`  
 ![orbCursor](./react.gif)  
 ###### `image of Inabakumori`
 
@@ -42,27 +51,27 @@ You can change the orb size inside the `poc.css`
 ##### default variable:
 ```css
 .orbcursor {
-    --orbsize: 10px;
-    --growScale: 10;
-    --offset: -.5px;
-    /*customizable variables*/
+  --orbsize: 10px;
+  --growScale: 10;
+  --offset: -0.5px;
+  --duration: 0.2s;
+  /*you can add your own easing function here*/
+  --sleek: cubic-bezier(0.03, 0.77, 0.34, 1);
+
+  /*customizable variables*/
 
     ...
 ```
 ### **Easing**
 Change the ease and movement of the orb by changing the speed variable in `poc.js`
 ##### default variable:
-```js
-let speed = .2; // easing multiplier max(1)
+```html
+    <orb-cursor speed="0.2"></orb-cursor>
+                        ↑
+                    this thing
 ```
 If you want to hide the cursor easing entirely, change the easing multiplier to `1` in the `poc.js`.
-```js
-let speed = 1;
+```html
+    <orb-cursor speed="1"></orb-cursor>
 ```
 This will make the cursor movement immediate.
-
-##### *(not recommended)*
-Setting the speed more than `1` will freak out the orb and perform mitosis (and reduce performance).
-```js
-let speed = 1.7; //perform mitosis
-```
