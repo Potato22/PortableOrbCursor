@@ -123,18 +123,20 @@ class CursorOrbElement extends HTMLElement {
     }
 
     // Check if orb is hovering over an orbReact attribute element
-    let elesAtThisPoint = document.elementsFromPoint(e.clientX, e.clientY);
+    let eleAtThisPoint = document.elementFromPoint(e.clientX, e.clientY);
+    let ptr = eleAtThisPoint;
     let react = false;
-    for (let i = 0; i < elesAtThisPoint.length; i++) {
-      const ele = elesAtThisPoint[i];
+    do {
+      // Break on root
+      if (!ptr) break;
       if (
-        this.observedTags.includes(ele.tagName) ||
-        ele.hasAttribute("orbReact")
+        ptr.hasAttribute("orbReact") ||
+        this.observedTags.includes(ptr.tagName)
       ) {
-        react = ele;
+        react = true;
         break;
       }
-    }
+    } while ((ptr = ptr.parentElement));
 
     if (react) {
       this.cursor.classList.remove("idle", "animactive");
